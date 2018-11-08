@@ -23,17 +23,22 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Logo from '~/components/Logo.vue';
 
 export default {
   components: {
     Logo
+  },
+  mounted() {
+    console.log('mounted');
+    this.$axios.$get('/ocr').then(data => {
+      console.log(data);
+    });
   }
-}
+};
 </script>
 
 <style>
-
 .container {
   min-height: 100vh;
   display: flex;
